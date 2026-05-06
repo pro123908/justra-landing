@@ -104,7 +104,7 @@ import "./style.css";
 // ---------- SECTION ENTRANCE ANIMATIONS ----------
 (function () {
   const targets = document.querySelectorAll(
-    ".problem-card, .pillar, .price-card, .phase, .team-card, .flow-steps li",
+    ".problem-card, .pillar, .price-card, .biz-card, .phase, .team-card, .team-card-new, .flow-steps li",
   );
   targets.forEach((el) => {
     el.style.opacity = "0";
