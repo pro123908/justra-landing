@@ -398,11 +398,17 @@ body {
   text-wrap: pretty;
 }
 .hero-cta {
-  display: inline-flex;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 56px;
+}
+.hero-cta-row {
+  display: flex;
   gap: 12px;
   flex-wrap: wrap;
   justify-content: center;
-  margin-bottom: 56px;
 }
 
 /* Feature pills */
@@ -1503,22 +1509,42 @@ body {
   border-radius: 999px;
   border: 1px solid var(--border);
   color: var(--ink-3);
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
 }
-.phase-now {
-  border-color: var(--hairline);
-  background: linear-gradient(
-    180deg,
-    color-mix(in oklab, var(--brand) 8%, var(--bg-card)),
-    var(--bg-card)
-  );
+.phase-state-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--brand);
+  flex-shrink: 0;
+  animation: pulseDot 1.8s ease-in-out infinite;
 }
-.phase-now .phase-state {
+@keyframes pulseDot {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.4;
+    transform: scale(0.7);
+  }
+}
+.phase-state--active {
   color: var(--brand);
   border-color: var(--hairline);
   background: color-mix(in oklab, var(--brand) 8%, transparent);
 }
-.phase-next .phase-state {
-  color: var(--warn);
+.phase-state--upcoming {
+  color: var(--warn, #f5a623);
+  border-color: color-mix(in oklab, var(--warn, #f5a623) 30%, transparent);
+  background: color-mix(in oklab, var(--warn, #f5a623) 6%, transparent);
+}
+.phase-state--later {
+  color: var(--ink-3);
+  border-color: var(--border);
 }
 .phase h3 {
   font-size: 28px;

@@ -4,6 +4,31 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>Justra — Trustless software delivery escrow</title>
+    <meta
+      name="description"
+      content="Justra is a trustless escrow for software delivery. Funds lock in a Solana smart contract, AI verifies the work, and humans arbitrate edge cases."
+    />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:title"
+      content="Justra — Trustless software delivery escrow"
+    />
+    <meta
+      property="og:description"
+      content="Funds lock in a Solana smart contract, AI verifies the work against agreed milestones, and humans arbitrate the rare edge cases — so clients pay with confidence and developers get paid on time."
+    />
+    <meta property="og:url" content="https://justra.io" />
+    <meta property="og:image" content="https://justra.io/og-image.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Justra — Trustless software delivery escrow"
+    />
+    <meta
+      name="twitter:description"
+      content="Trustless escrow for software delivery. AI-verified milestones on Solana."
+    />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -63,9 +88,9 @@
             />
           </svg>
         </button>
-        <a class="btn btn-ghost" href="#">Sign in</a>
-        <a class="btn btn-primary" href="#"
-          >Launch app
+        <a class="btn btn-ghost" href="mailto:hello@justra.io">Contact us</a>
+        <a class="btn btn-primary" href="mailto:hello@justra.io"
+          >Get access
           <svg viewBox="0 0 16 16" width="14" height="14">
             <path
               d="M5 3l5 5-5 5"
@@ -125,25 +150,24 @@
           </p>
 
           <div class="hero-cta">
-            <a class="btn btn-primary btn-lg" href="#solution">
-              See how it works
-              <svg viewBox="0 0 16 16" width="14" height="14">
-                <path
-                  d="M5 3l5 5-5 5"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="1.8"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
-            </a>
-            <a
-              class="btn btn-ghost"
-              href="mailto:hello@justra.io"
-              style="margin-top: 8px"
-              >Talk to founders</a
-            >
+            <div class="hero-cta-row">
+              <a class="btn btn-primary btn-lg" href="#solution">
+                See how it works
+                <svg viewBox="0 0 16 16" width="14" height="14">
+                  <path
+                    d="M5 3l5 5-5 5"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </a>
+              <a class="btn btn-ghost btn-lg" href="mailto:hello@justra.io"
+                >Talk to founders</a
+              >
+            </div>
           </div>
 
           <!-- 3 key feature pills -->
@@ -383,58 +407,6 @@
           </div>
         </div>
       </section>
-
-      <!-- ============ SOCIAL PROOF ============ -->
-      <div class="social-proof">
-        <div class="social-proof-inner">
-          <div class="sp-header">
-            <span class="sp-label">What early testers are saying</span>
-          </div>
-          <div class="sp-quotes">
-            <div class="sp-quote">
-              <p>
-                &ldquo;Finally, something that protects both sides. We closed a
-                $15k contract with a client we&rsquo;d never met &mdash; zero
-                anxiety.&rdquo;
-              </p>
-              <div class="sp-quote-by">
-                <div class="sp-avatar sp-av-a">AK</div>
-                <div>
-                  <div class="sp-quote-name">Amir K.</div>
-                  <div class="sp-quote-role">Fullstack Developer, Karachi</div>
-                </div>
-              </div>
-            </div>
-            <div class="sp-quote">
-              <p>
-                &ldquo;The AI verdict saved us three days of back-and-forth.
-                Score came back in under 60 seconds. Genuinely
-                impressive.&rdquo;
-              </p>
-              <div class="sp-quote-by">
-                <div class="sp-avatar sp-av-b">SM</div>
-                <div>
-                  <div class="sp-quote-name">Sarah M.</div>
-                  <div class="sp-quote-role">Tech Lead, Remote</div>
-                </div>
-              </div>
-            </div>
-            <div class="sp-quote">
-              <p>
-                &ldquo;As a client, I won&rsquo;t hire a developer without
-                Justra anymore. The spec verification alone is worth it.&rdquo;
-              </p>
-              <div class="sp-quote-by">
-                <div class="sp-avatar sp-av-c">DR</div>
-                <div>
-                  <div class="sp-quote-name">Daniel R.</div>
-                  <div class="sp-quote-role">Startup Founder, Dubai</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
 
       <!-- ============ PROBLEM ============ -->
       <section class="section problem" id="problem" data-screen-label="Problem">
@@ -853,7 +825,9 @@
           <article class="phase phase-now">
             <header>
               <span class="phase-label">Phase 01 · v1.0</span>
-              <span class="phase-state">Shipping now</span>
+              <span class="phase-state phase-state--active">
+                <span class="phase-state-dot"></span>Shipping now</span
+              >
             </header>
             <h3>MVP</h3>
             <ul>
@@ -868,7 +842,7 @@
           <article class="phase phase-next">
             <header>
               <span class="phase-label">Phase 02 · v2.0</span>
-              <span class="phase-state">In design</span>
+              <span class="phase-state phase-state--upcoming">In design</span>
             </header>
             <h3>Growth</h3>
             <ul>
@@ -883,7 +857,7 @@
           <article class="phase phase-later">
             <header>
               <span class="phase-label">Phase 03 · v3.0</span>
-              <span class="phase-state">On the horizon</span>
+              <span class="phase-state phase-state--later">On the horizon</span>
             </header>
             <h3>Scale</h3>
             <ul>
@@ -1226,7 +1200,7 @@
           class="section-head"
           style="text-align: center; margin-left: auto; margin-right: auto"
         >
-          <span class="section-tag">06 &middot; FAQ</span>
+          <span class="section-tag">05 &middot; FAQ</span>
           <h2 class="section-title">
             Common questions, <em>straight answers.</em>
           </h2>
@@ -1439,16 +1413,16 @@
         <div>
           <h4>Company</h4>
           <a href="#team">Team</a>
-          <a href="#">Careers</a>
-          <a href="#">Press kit</a>
-          <a href="#">Contact</a>
+          <a href="mailto:hello@justra.io">Careers</a>
+          <a href="mailto:hello@justra.io">Press kit</a>
+          <a href="mailto:hello@justra.io">Contact</a>
         </div>
         <div>
           <h4>Legal</h4>
-          <a href="#">Privacy</a>
-          <a href="#">Terms</a>
-          <a href="#">Security</a>
-          <a href="#">Audit reports</a>
+          <a href="mailto:hello@justra.io">Privacy</a>
+          <a href="mailto:hello@justra.io">Terms</a>
+          <a href="mailto:hello@justra.io">Security</a>
+          <a href="mailto:hello@justra.io">Audit reports</a>
         </div>
       </div>
       <div class="foot-bot">
