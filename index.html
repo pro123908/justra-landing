@@ -1,593 +1,1178 @@
 <!doctype html>
 <html lang="en" data-theme="dark">
-<head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Justra — Trustless software delivery escrow</title>
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&family=Geist+Mono:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
-</head>
-<body>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Justra — Trustless software delivery escrow</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&family=Geist+Mono:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="cursor-spotlight" aria-hidden="true"></div>
+    <div id="scroll-progress" aria-hidden="true"></div>
 
-<!-- ============ NAV ============ -->
-<header class="nav" data-screen-label="Nav">
-  <a href="#top" class="nav-logo" aria-label="Justra home">
-    <svg viewBox="0 0 32 36" width="22" height="24" aria-hidden="true">
-      <path d="M16 1.5 L29 6 V18 C29 26 22.5 31.5 16 34.5 C9.5 31.5 3 26 3 18 V6 Z"
-            fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/>
-      <path d="M19 9 H21 V19.5 C21 23.2 18.6 25.5 15.2 25.5 C12.6 25.5 10.5 24 10 21.6"
-            fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
-    <span class="logo-word">Justra</span>
-  </a>
-
-  <nav class="nav-links" aria-label="Primary">
-    <a href="#problem">The Problem</a>
-    <a href="#solution">Our Solution</a>
-    <a href="#pricing">Pricing</a>
-    <a href="#roadmap">Roadmap</a>
-    <a href="#team">Team</a>
-  </nav>
-
-  <div class="nav-actions">
-    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
-      <svg class="ico-sun" viewBox="0 0 24 24" width="16" height="16"><circle cx="12" cy="12" r="4" fill="currentColor"/><g stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.6 4.6l2.1 2.1M17.3 17.3l2.1 2.1M4.6 19.4l2.1-2.1M17.3 6.7l2.1-2.1"/></g></svg>
-      <svg class="ico-moon" viewBox="0 0 24 24" width="16" height="16"><path d="M20 14.5A8 8 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5z" fill="currentColor"/></svg>
-    </button>
-    <a class="btn btn-ghost" href="#">Sign in</a>
-    <a class="btn btn-primary" href="#">Launch app
-      <svg viewBox="0 0 16 16" width="14" height="14"><path d="M5 3l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    </a>
-  </div>
-</header>
-
-<main id="top">
-
-<!-- ============ HERO ============ -->
-<section class="hero" data-screen-label="Hero">
-  <div class="hero-bg" aria-hidden="true">
-    <div class="grid"></div>
-    <div class="glow glow-a"></div>
-    <div class="glow glow-b"></div>
-  </div>
-
-  <div class="hero-inner">
-    <a class="eyebrow" href="#">
-      <span class="eyebrow-dot"></span>
-      <span>Now in private beta — <u>request access</u></span>
-      <svg viewBox="0 0 16 16" width="12" height="12"><path d="M5 3l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
-    </a>
-
-    <h1 class="hero-title">
-      Eliminate payment disputes.
-      <span class="hl">Not the work that earns them.</span>
-    </h1>
-
-    <p class="hero-sub">
-      Justra is a trustless escrow for software delivery. Funds lock in a Solana smart contract,
-      AI verifies the work against agreed milestones, and humans arbitrate the rare edge cases —
-      so clients pay with confidence and developers get paid on time.
-    </p>
-
-    <div class="hero-cta">
-      <a class="btn btn-primary btn-lg" href="#">Launch app
-        <svg viewBox="0 0 16 16" width="14" height="14"><path d="M5 3l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </a>
-      <a class="btn btn-ghost btn-lg" href="#solution">See how it works</a>
-    </div>
-
-    <!-- 3 key feature pills -->
-    <ul class="feature-pills" aria-label="Key features">
-      <li>
-        <svg viewBox="0 0 24 24" width="16" height="16" class="pill-ico"><path d="M12 3l8 4v5c0 5-3.5 8.5-8 9.5-4.5-1-8-4.5-8-9.5V7z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        <div>
-          <strong>Solana smart‑contract escrow</strong>
-          <span>Funds locked the moment work begins. Released by rule, not by mood.</span>
-        </div>
-      </li>
-      <li>
-        <svg viewBox="0 0 24 24" width="16" height="16" class="pill-ico"><circle cx="12" cy="12" r="3" fill="currentColor"/><path d="M12 2v3M12 19v3M22 12h-3M5 12H2M19 5l-2 2M7 17l-2 2M19 19l-2-2M7 7L5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
-        <div>
-          <strong>5‑model AI verdict</strong>
-          <span>Multiple models score deliverables against your acceptance criteria.</span>
-        </div>
-      </li>
-      <li>
-        <svg viewBox="0 0 24 24" width="16" height="16" class="pill-ico"><path d="M3 11l3-7h12l3 7M3 11v9h18v-9M3 11h18M9 16h6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"/></svg>
-        <div>
-          <strong>Human arbitration backstop</strong>
-          <span>For the 1% of edge cases where machines aren't enough.</span>
-        </div>
-      </li>
-    </ul>
-
-    <!-- Animated escrow flow -->
-    <div class="flow-card" id="flowCard" aria-label="How a Justra escrow resolves">
-      <div class="flow-card-head">
-        <div class="flow-tabs">
-          <span class="flow-tab active">Live escrow • <code>ESC-2871</code></span>
-          <span class="flow-tab">Activity</span>
-          <span class="flow-tab">Files</span>
-        </div>
-        <div class="flow-status" id="flowStatus">
-          <span class="dot"></span><span class="status-label">Funds locked</span>
-        </div>
-      </div>
-
-      <div class="flow-grid">
-        <!-- Stage 1: PR -->
-        <div class="stage stage-1" id="stage1">
-          <div class="stage-label">1 · Delivery</div>
-          <div class="pr-card">
-            <div class="pr-head">
-              <svg viewBox="0 0 16 16" width="14" height="14" class="pr-icon"><path d="M5 3.5a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3zM5 9.5a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3zM11 3.5a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3zM5 6.5v3M11 6.5v3a2 2 0 0 0 0 0" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
-              <span class="pr-title">feat: implement onboarding flow + email verification</span>
-              <span class="pr-num">#142</span>
-            </div>
-            <div class="pr-meta">
-              <span class="pr-branch"><code>milestone-2</code> ← <code>main</code></span>
-              <span class="pr-by">by <strong>@dev_amir</strong></span>
-            </div>
-            <div class="pr-stats">
-              <span class="add">+847</span><span class="rem">−112</span>
-              <span class="files">12 files</span>
-              <span class="commits">8 commits</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Connector -->
-        <svg class="conn conn-1" viewBox="0 0 100 20" preserveAspectRatio="none" aria-hidden="true"><path d="M0 10 H100" stroke="currentColor" stroke-width="1.5" stroke-dasharray="3 4"/></svg>
-
-        <!-- Stage 2: AI verdict -->
-        <div class="stage stage-2" id="stage2">
-          <div class="stage-label">2 · AI Verdict</div>
-          <div class="verdict-card">
-            <div class="verdict-head">
-              <span class="verdict-label">Aggregate score</span>
-              <span class="verdict-score" id="verdictScore">94<small>/100</small></span>
-            </div>
-            <div class="model-row" data-model="gpt">
-              <span class="model-name">GPT‑5</span>
-              <div class="model-bar"><i style="--w:96%"></i></div>
-              <span class="model-pct">96</span>
-            </div>
-            <div class="model-row" data-model="claude">
-              <span class="model-name">Claude</span>
-              <div class="model-bar"><i style="--w:94%"></i></div>
-              <span class="model-pct">94</span>
-            </div>
-            <div class="model-row" data-model="gemini">
-              <span class="model-name">Gemini</span>
-              <div class="model-bar"><i style="--w:92%"></i></div>
-              <span class="model-pct">92</span>
-            </div>
-            <div class="model-row" data-model="llama">
-              <span class="model-name">Llama</span>
-              <div class="model-bar"><i style="--w:93%"></i></div>
-              <span class="model-pct">93</span>
-            </div>
-            <div class="model-row" data-model="deepseek">
-              <span class="model-name">DeepSeek</span>
-              <div class="model-bar"><i style="--w:95%"></i></div>
-              <span class="model-pct">95</span>
-            </div>
-            <div class="verdict-foot">
-              <span class="check">✓ All 7 acceptance criteria met</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Connector -->
-        <svg class="conn conn-2" viewBox="0 0 100 20" preserveAspectRatio="none" aria-hidden="true"><path d="M0 10 H100" stroke="currentColor" stroke-width="1.5" stroke-dasharray="3 4"/></svg>
-
-        <!-- Stage 3: Release -->
-        <div class="stage stage-3" id="stage3">
-          <div class="stage-label">3 · Release</div>
-          <div class="release-card">
-            <div class="release-head">
-              <span>Released</span>
-              <span class="tx">tx <code>3xH7…b9Pq</code></span>
-            </div>
-            <div class="release-amount">
-              <span class="release-num" id="releaseNum">$0</span>
-              <span class="release-cur">USDC</span>
-            </div>
-            <div class="release-foot">
-              <span>→ <strong>@dev_amir</strong></span>
-              <span class="time">in 2.4s</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="flow-foot">
-        <span class="foot-item"><span class="kbd">⌘</span><span class="kbd">␣</span> watch live demo</span>
-        <span class="foot-spacer"></span>
-        <span class="foot-item">Solana mainnet · settled in <strong>~2s</strong></span>
-      </div>
-    </div>
-
-    <div class="trust-strip">
-      <span>Backed by</span>
-      <span class="trust-item">Solana</span>
-      <span class="trust-item">GitHub Apps</span>
-      <span class="trust-item">SOC 2 in progress</span>
-      <span class="trust-item">USDC settlement</span>
-    </div>
-  </div>
-</section>
-
-<!-- ============ PROBLEM ============ -->
-<section class="section problem" id="problem" data-screen-label="Problem">
-  <div class="section-head">
-    <span class="section-tag">01 · The Problem</span>
-    <h2 class="section-title">The freelance economy <em>is broken.</em></h2>
-    <p class="section-sub">Three structural failures every developer and every client knows by heart.</p>
-  </div>
-
-  <div class="problem-grid">
-    <article class="problem-card">
-      <div class="problem-num">01</div>
-      <h3>Vague requirements</h3>
-      <p>Clients shift goalposts after delivery. Ambiguity isn't a bug — it gets exploited as a feature on every major freelance platform.</p>
-      <div class="problem-quote">"That's not what I asked for."</div>
-    </article>
-
-    <article class="problem-card highlight">
-      <div class="problem-num">02</div>
-      <h3>Non‑payment risk</h3>
-      <p><strong>53%</strong> of freelancers report non‑payment issues. The best developers won't even start without guarantees that don't exist.</p>
-      <div class="problem-stat"><span>53%</span><small>freelancers report non‑payment</small></div>
-    </article>
-
-    <article class="problem-card">
-      <div class="problem-num">03</div>
-      <h3>Broken arbitration</h3>
-      <p>Upwork's human review takes days, runs client‑biased, and charges up to <strong>20%</strong> in combined fees. Trust is sold by the platform — not built into the work.</p>
-      <div class="problem-quote">"Disputed. Resolution: 7 days."</div>
-    </article>
-  </div>
-
-  <p class="problem-note">
-    No platform today combines objective deliverable verification, escrow, and code analysis in one workflow.
-    <span>Until now.</span>
-  </p>
-</section>
-
-<!-- ============ SOLUTION ============ -->
-<section class="section solution" id="solution" data-screen-label="Solution">
-  <div class="section-head">
-    <span class="section-tag">02 · Our Solution</span>
-    <h2 class="section-title">Four pillars that <em>eliminate disputes by design.</em></h2>
-    <p class="section-sub">Each one closes a specific gap that lets disputes happen in the first place.</p>
-  </div>
-
-  <div class="pillars">
-    <div class="pillar" data-pillar="1">
-      <div class="pillar-head">
-        <span class="pillar-num">01</span>
-        <h3>Machine‑readable requirements</h3>
-      </div>
-      <p>All requirements defined upfront as structured checklists, test cases, and acceptance criteria. No more interpretation games.</p>
-      <div class="pillar-demo demo-spec">
-        <div class="spec-row"><i class="spec-check">✓</i> User can sign up with email + verification</div>
-        <div class="spec-row"><i class="spec-check">✓</i> Password ≥ 12 chars, hashed with bcrypt</div>
-        <div class="spec-row"><i class="spec-check">✓</i> Sessions expire after 7 days idle</div>
-        <div class="spec-row pending"><i class="spec-check">○</i> OAuth: Google + GitHub providers</div>
-        <div class="spec-row pending"><i class="spec-check">○</i> Rate limit: 5 attempts / 15min</div>
-      </div>
-    </div>
-
-    <div class="pillar" data-pillar="2">
-      <div class="pillar-head">
-        <span class="pillar-num">02</span>
-        <h3>Trustless fund escrow</h3>
-      </div>
-      <p>Client funds locked in a Solana smart contract. Neither party can withdraw unilaterally — release is rule‑based and transparent.</p>
-      <div class="pillar-demo demo-escrow">
-        <div class="escrow-vault">
-          <div class="vault-label">Locked in escrow</div>
-          <div class="vault-amount">$12,000<span>.00 USDC</span></div>
-          <div class="vault-meta">
-            <span>Contract</span><code>3xH7zR…9bPq</code>
-          </div>
-          <div class="vault-bar"><i></i></div>
-          <div class="vault-foot">
-            <span>Milestone 2 of 4</span><span>50% released</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="pillar" data-pillar="3">
-      <div class="pillar-head">
-        <span class="pillar-num">03</span>
-        <h3>Milestone‑based payments</h3>
-      </div>
-      <p>Work splits into clearly defined milestones, each tied to acceptance criteria. Progress visible, payment conditional.</p>
-      <div class="pillar-demo demo-milestones">
-        <div class="ms ms-done"><span class="ms-dot"></span><span class="ms-label">Setup & schema</span><span class="ms-amt">$3,000</span></div>
-        <div class="ms ms-done"><span class="ms-dot"></span><span class="ms-label">Auth + onboarding</span><span class="ms-amt">$3,000</span></div>
-        <div class="ms ms-active"><span class="ms-dot"></span><span class="ms-label">Dashboard & API</span><span class="ms-amt">$3,000</span></div>
-        <div class="ms"><span class="ms-dot"></span><span class="ms-label">Polish & deploy</span><span class="ms-amt">$3,000</span></div>
-      </div>
-    </div>
-
-    <div class="pillar" data-pillar="4">
-      <div class="pillar-head">
-        <span class="pillar-num">04</span>
-        <h3>AI deliverable evaluation</h3>
-      </div>
-      <p>Submitted work auto‑analyzed against requirements and scored for completeness, correctness, alignment. Fast, objective, fair.</p>
-      <div class="pillar-demo demo-ai">
-        <div class="ai-score-ring">
-          <svg viewBox="0 0 100 100" width="92" height="92">
-            <circle cx="50" cy="50" r="42" fill="none" stroke="var(--border)" stroke-width="6"/>
-            <circle cx="50" cy="50" r="42" fill="none" stroke="var(--brand)" stroke-width="6"
-                    stroke-dasharray="248" stroke-dashoffset="14.88" stroke-linecap="round"
-                    transform="rotate(-90 50 50)"/>
-          </svg>
-          <div class="ai-score-text"><strong>94</strong><span>/100</span></div>
-        </div>
-        <div class="ai-side">
-          <div class="ai-row"><span class="ai-dot"></span>Completeness <strong>96</strong></div>
-          <div class="ai-row"><span class="ai-dot"></span>Correctness <strong>92</strong></div>
-          <div class="ai-row"><span class="ai-dot"></span>Spec alignment <strong>95</strong></div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- HOW IT WORKS — flow -->
-  <div class="how-it-works" id="how-it-works">
-    <h3 class="how-title">End‑to‑end flow</h3>
-    <p class="how-sub">From spec to settled in five steps. No emails, no Upwork tickets, no chasing.</p>
-
-    <ol class="flow-steps">
-      <li>
-        <div class="step-num">01</div>
-        <h4>Define spec</h4>
-        <p>Client and developer agree on milestones, acceptance criteria, and a budget.</p>
-      </li>
-      <li>
-        <div class="step-num">02</div>
-        <h4>Lock funds</h4>
-        <p>USDC is locked in a Solana smart contract before any work begins.</p>
-      </li>
-      <li>
-        <div class="step-num">03</div>
-        <h4>Build &amp; submit</h4>
-        <p>Developer ships via GitHub PRs, ZIPs, or commits — tied to a milestone.</p>
-      </li>
-      <li>
-        <div class="step-num">04</div>
-        <h4>AI verdict</h4>
-        <p>Five models score the delivery against the agreed spec. Score is transparent.</p>
-      </li>
-      <li>
-        <div class="step-num">05</div>
-        <h4>Release or arbitrate</h4>
-        <p>If accepted, funds release on‑chain in seconds. If disputed, a human reviewer steps in.</p>
-      </li>
-    </ol>
-  </div>
-</section>
-
-<!-- ============ PRICING ============ -->
-<section class="section pricing" id="pricing" data-screen-label="Pricing">
-  <div class="section-head">
-    <span class="section-tag">03 · Pricing</span>
-    <h2 class="section-title">Simple. <em>Per‑escrow.</em></h2>
-    <p class="section-sub">No subscriptions. No platform lock‑in. You pay only when an escrow settles successfully.</p>
-  </div>
-
-  <div class="price-grid">
-    <article class="price-card">
-      <header>
-        <span class="price-tier">Solo</span>
-        <span class="price-for">For freelancers and indie clients</span>
-      </header>
-      <div class="price-amount"><span class="num">1.5%</span><span class="unit">per escrow</span></div>
-      <ul class="price-features">
-        <li><span>✓</span> Up to $10k per project</li>
-        <li><span>✓</span> 5‑model AI verdict</li>
-        <li><span>✓</span> GitHub + ZIP delivery</li>
-        <li><span>✓</span> Standard arbitration</li>
-        <li><span>✓</span> USDC settlement</li>
-      </ul>
-      <a class="btn btn-ghost btn-block" href="#">Start free</a>
-    </article>
-
-    <article class="price-card featured">
-      <header>
-        <span class="price-tier">Studio <span class="badge">Most popular</span></span>
-        <span class="price-for">For agencies, teams, and serious builders</span>
-      </header>
-      <div class="price-amount"><span class="num">1.0%</span><span class="unit">per escrow</span></div>
-      <ul class="price-features">
-        <li><span>✓</span> Unlimited project size</li>
-        <li><span>✓</span> Custom acceptance criteria templates</li>
-        <li><span>✓</span> Priority arbitration (under 24h)</li>
-        <li><span>✓</span> Team workspaces &amp; roles</li>
-        <li><span>✓</span> API + webhooks</li>
-      </ul>
-      <a class="btn btn-primary btn-block" href="#">Start free</a>
-    </article>
-
-    <article class="price-card">
-      <header>
-        <span class="price-tier">Enterprise</span>
-        <span class="price-for">For platforms and regulated buyers</span>
-      </header>
-      <div class="price-amount"><span class="num">Custom</span><span class="unit">talk to us</span></div>
-      <ul class="price-features">
-        <li><span>✓</span> White‑label escrow</li>
-        <li><span>✓</span> On‑prem AI review options</li>
-        <li><span>✓</span> Fiat rails (Stripe, wire)</li>
-        <li><span>✓</span> Dedicated SLA &amp; support</li>
-        <li><span>✓</span> Compliance review</li>
-      </ul>
-      <a class="btn btn-ghost btn-block" href="#">Book a call</a>
-    </article>
-  </div>
-
-  <p class="price-note">Pricing shown is indicative for our private beta — final tiers may shift before public launch.</p>
-</section>
-
-<!-- ============ ROADMAP ============ -->
-<section class="section roadmap" id="roadmap" data-screen-label="Roadmap">
-  <div class="section-head">
-    <span class="section-tag">04 · Roadmap</span>
-    <h2 class="section-title">From MVP to platform — <em>a clear three‑phase path.</em></h2>
-    <p class="section-sub">We're shipping in public. Here's where we are and where we're going.</p>
-  </div>
-
-  <div class="roadmap-rail">
-    <div class="rail-line"></div>
-
-    <article class="phase phase-now">
-      <header>
-        <span class="phase-label">Phase 01 · v1.0</span>
-        <span class="phase-state">Shipping now</span>
-      </header>
-      <h3>MVP</h3>
-      <ul>
-        <li>GitHub repo + ZIP delivery</li>
-        <li>Solana smart‑contract escrow</li>
-        <li>5‑model AI verdict engine</li>
-        <li>Spec verification assistant</li>
-        <li>Human arbitration fallback</li>
-      </ul>
-    </article>
-
-    <article class="phase phase-next">
-      <header>
-        <span class="phase-label">Phase 02 · v2.0</span>
-        <span class="phase-state">In design</span>
-      </header>
-      <h3>Growth</h3>
-      <ul>
-        <li>Fiat payments (Stripe, PayPal)</li>
-        <li>VS Code IDE extension</li>
-        <li>Automated test execution</li>
-        <li>Mobile app (iOS &amp; Android)</li>
-        <li>Enhanced security audits</li>
-      </ul>
-    </article>
-
-    <article class="phase phase-later">
-      <header>
-        <span class="phase-label">Phase 03 · v3.0</span>
-        <span class="phase-state">On the horizon</span>
-      </header>
-      <h3>Scale</h3>
-      <ul>
-        <li>Design + non‑code deliverables</li>
-        <li>Enterprise / agency tier</li>
-        <li>White‑label platform</li>
-        <li>Expanded global compliance</li>
-      </ul>
-    </article>
-  </div>
-</section>
-
-<!-- ============ TEAM ============ -->
-<section class="section team" id="team" data-screen-label="Team">
-  <div class="section-head">
-    <span class="section-tag">05 · Team</span>
-    <h2 class="section-title">Built by operators who've <em>shipped at scale.</em></h2>
-    <p class="section-sub">A small, senior team out of Karachi, Pakistan — backed by DroxLabs.</p>
-  </div>
-
-  <div class="team-grid">
-    <article class="team-card">
-      <div class="avatar avatar-1"><span>FN</span></div>
-      <h3>Founder Name</h3>
-      <p class="role">Co‑founder &amp; CEO</p>
-      <p class="bio">Product &amp; GTM. Previously led platform teams at fintechs across MENA &amp; SEA.</p>
-    </article>
-    <article class="team-card">
-      <div class="avatar avatar-2"><span>FN</span></div>
-      <h3>Founder Name</h3>
-      <p class="role">Co‑founder &amp; CTO</p>
-      <p class="bio">Solana &amp; smart‑contract architecture. Open source contributor.</p>
-    </article>
-    <article class="team-card">
-      <div class="avatar avatar-3"><span>FN</span></div>
-      <h3>Founder Name</h3>
-      <p class="role">Head of AI</p>
-      <p class="bio">Multi‑model evaluation systems. Built ML pipelines for code analysis at scale.</p>
-    </article>
-    <article class="team-card">
-      <div class="avatar avatar-4"><span>FN</span></div>
-      <h3>Founder Name</h3>
-      <p class="role">Head of Design</p>
-      <p class="bio">Designs trust into products. From wallets to onboarding flows.</p>
-    </article>
-  </div>
-
-  <p class="team-note">Names &amp; roles are placeholders — drop in your actual team from the deck whenever you're ready.</p>
-</section>
-
-<!-- ============ FINAL CTA ============ -->
-<section class="section final-cta" data-screen-label="CTA">
-  <div class="cta-card">
-    <h2>Stop chasing payments.<br/>Start shipping outcomes.</h2>
-    <p>Join the private beta. Free for the first 100 escrows.</p>
-    <div class="cta-actions">
-      <a class="btn btn-primary btn-lg" href="#">Launch app
-        <svg viewBox="0 0 16 16" width="14" height="14"><path d="M5 3l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </a>
-      <a class="btn btn-ghost btn-lg" href="#">Talk to founders</a>
-    </div>
-  </div>
-</section>
-
-</main>
-
-<!-- ============ FOOTER ============ -->
-<footer class="footer" data-screen-label="Footer">
-  <div class="foot-grid">
-    <div class="foot-brand">
-      <a href="#top" class="nav-logo">
-        <svg viewBox="0 0 32 36" width="20" height="22" aria-hidden="true">
-          <path d="M16 1.5 L29 6 V18 C29 26 22.5 31.5 16 34.5 C9.5 31.5 3 26 3 18 V6 Z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/>
-          <path d="M19 9 H21 V19.5 C21 23.2 18.6 25.5 15.2 25.5 C12.6 25.5 10.5 24 10 21.6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+    <!-- ============ NAV ============ -->
+    <header class="nav" data-screen-label="Nav">
+      <a href="#top" class="nav-logo" aria-label="Justra home">
+        <svg viewBox="0 0 32 36" width="22" height="24" aria-hidden="true">
+          <path
+            d="M16 1.5 L29 6 V18 C29 26 22.5 31.5 16 34.5 C9.5 31.5 3 26 3 18 V6 Z"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.2"
+            stroke-linejoin="round"
+          />
+          <path
+            d="M19 9 H21 V19.5 C21 23.2 18.6 25.5 15.2 25.5 C12.6 25.5 10.5 24 10 21.6"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
         </svg>
         <span class="logo-word">Justra</span>
       </a>
-      <p class="foot-tag">Trustless software delivery escrow.<br/>Built on Solana, powered by AI, watched over by humans.</p>
-    </div>
-    <div>
-      <h4>Product</h4>
-      <a href="#problem">The Problem</a>
-      <a href="#solution">Our Solution</a>
-      <a href="#pricing">Pricing</a>
-      <a href="#roadmap">Roadmap</a>
-    </div>
-    <div>
-      <h4>Company</h4>
-      <a href="#team">Team</a>
-      <a href="#">Careers</a>
-      <a href="#">Press kit</a>
-      <a href="#">Contact</a>
-    </div>
-    <div>
-      <h4>Legal</h4>
-      <a href="#">Privacy</a>
-      <a href="#">Terms</a>
-      <a href="#">Security</a>
-      <a href="#">Audit reports</a>
-    </div>
-  </div>
-  <div class="foot-bot">
-    <span>© 2026 Justra · A DroxLabs company · Karachi, Pakistan</span>
-    <span class="foot-status"><span class="dot"></span> All systems operational</span>
-  </div>
-</footer>
 
-<script type="module" src="/src/main.js"></script>
-</body>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="#problem">The Problem</a>
+        <a href="#solution">Our Solution</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#roadmap">Roadmap</a>
+        <a href="#team">Team</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+          <svg class="ico-sun" viewBox="0 0 24 24" width="16" height="16">
+            <circle cx="12" cy="12" r="4" fill="currentColor" />
+            <g stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+              <path
+                d="M12 2v3M12 19v3M2 12h3M19 12h3M4.6 4.6l2.1 2.1M17.3 17.3l2.1 2.1M4.6 19.4l2.1-2.1M17.3 6.7l2.1-2.1"
+              />
+            </g>
+          </svg>
+          <svg class="ico-moon" viewBox="0 0 24 24" width="16" height="16">
+            <path
+              d="M20 14.5A8 8 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5z"
+              fill="currentColor"
+            />
+          </svg>
+        </button>
+        <a class="btn btn-ghost" href="#">Sign in</a>
+        <a class="btn btn-primary" href="#"
+          >Launch app
+          <svg viewBox="0 0 16 16" width="14" height="14">
+            <path
+              d="M5 3l5 5-5 5"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </a>
+        <button
+          class="nav-hamburger"
+          id="navHamburger"
+          aria-label="Toggle menu"
+          aria-expanded="false"
+        >
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </header>
+
+    <main id="top">
+      <!-- ============ HERO ============ -->
+      <section class="hero" data-screen-label="Hero">
+        <div class="hero-bg" aria-hidden="true">
+          <div class="grid"></div>
+          <div class="glow glow-a"></div>
+          <div class="glow glow-b"></div>
+        </div>
+
+        <div class="hero-inner">
+          <a class="eyebrow" href="#">
+            <span class="eyebrow-dot"></span>
+            <span>Now in private beta — <u>request access</u></span>
+            <svg viewBox="0 0 16 16" width="12" height="12">
+              <path
+                d="M5 3l5 5-5 5"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linecap="round"
+              />
+            </svg>
+          </a>
+
+          <h1 class="hero-title">
+            Eliminate payment disputes.
+            <span class="hl">Not the work that earns them.</span>
+          </h1>
+
+          <p class="hero-sub">
+            Justra is a trustless escrow for software delivery. Funds lock in a
+            Solana smart contract, AI verifies the work against agreed
+            milestones, and humans arbitrate the rare edge cases — so clients
+            pay with confidence and developers get paid on time.
+          </p>
+
+          <div class="hero-cta">
+            <form class="waitlist-form" id="heroWaitlistForm">
+              <input
+                class="waitlist-input"
+                type="email"
+                name="email"
+                placeholder="Enter your email"
+                required
+                aria-label="Email address"
+              />
+              <button class="btn btn-primary btn-lg" type="submit">
+                Get early access
+                <svg viewBox="0 0 16 16" width="14" height="14">
+                  <path
+                    d="M5 3l5 5-5 5"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </button>
+            </form>
+            <p class="waitlist-note">
+              Free for the first 100 escrows &middot; No credit card required
+            </p>
+            <a class="btn btn-ghost" href="#solution" style="margin-top: 8px"
+              >See how it works</a
+            >
+          </div>
+
+          <!-- 3 key feature pills -->
+          <ul class="feature-pills" aria-label="Key features">
+            <li>
+              <svg viewBox="0 0 24 24" width="16" height="16" class="pill-ico">
+                <path
+                  d="M12 3l8 4v5c0 5-3.5 8.5-8 9.5-4.5-1-8-4.5-8-9.5V7z"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M9 12l2 2 4-4"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+              <div>
+                <strong>Solana smart‑contract escrow</strong>
+                <span
+                  >Funds locked the moment work begins. Released by rule, not by
+                  mood.</span
+                >
+              </div>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" width="16" height="16" class="pill-ico">
+                <circle cx="12" cy="12" r="3" fill="currentColor" />
+                <path
+                  d="M12 2v3M12 19v3M22 12h-3M5 12H2M19 5l-2 2M7 17l-2 2M19 19l-2-2M7 7L5 5"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                />
+              </svg>
+              <div>
+                <strong>5‑model AI verdict</strong>
+                <span
+                  >Multiple models score deliverables against your acceptance
+                  criteria.</span
+                >
+              </div>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" width="16" height="16" class="pill-ico">
+                <path
+                  d="M3 11l3-7h12l3 7M3 11v9h18v-9M3 11h18M9 16h6"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linejoin="round"
+                  stroke-linecap="round"
+                />
+              </svg>
+              <div>
+                <strong>Human arbitration backstop</strong>
+                <span
+                  >For the 1% of edge cases where machines aren't enough.</span
+                >
+              </div>
+            </li>
+          </ul>
+
+          <!-- Animated escrow flow -->
+          <div
+            class="flow-card"
+            id="flowCard"
+            aria-label="How a Justra escrow resolves"
+          >
+            <div class="flow-card-head">
+              <div class="flow-tabs">
+                <span class="flow-tab active"
+                  >Live escrow • <code>ESC-2871</code></span
+                >
+                <span class="flow-tab">Activity</span>
+                <span class="flow-tab">Files</span>
+              </div>
+              <div class="flow-status" id="flowStatus">
+                <span class="dot"></span
+                ><span class="status-label">Funds locked</span>
+              </div>
+            </div>
+
+            <div class="flow-grid">
+              <!-- Stage 1: PR -->
+              <div class="stage stage-1" id="stage1">
+                <div class="stage-label">1 · Delivery</div>
+                <div class="pr-card">
+                  <div class="pr-head">
+                    <svg
+                      viewBox="0 0 16 16"
+                      width="14"
+                      height="14"
+                      class="pr-icon"
+                    >
+                      <path
+                        d="M5 3.5a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3zM5 9.5a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3zM11 3.5a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3zM5 6.5v3M11 6.5v3a2 2 0 0 0 0 0"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                      />
+                    </svg>
+                    <span class="pr-title"
+                      >feat: implement onboarding flow + email
+                      verification</span
+                    >
+                    <span class="pr-num">#142</span>
+                  </div>
+                  <div class="pr-meta">
+                    <span class="pr-branch"
+                      ><code>milestone-2</code> ← <code>main</code></span
+                    >
+                    <span class="pr-by">by <strong>@dev_amir</strong></span>
+                  </div>
+                  <div class="pr-stats">
+                    <span class="add">+847</span><span class="rem">−112</span>
+                    <span class="files">12 files</span>
+                    <span class="commits">8 commits</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Connector -->
+              <svg
+                class="conn conn-1"
+                viewBox="0 0 100 20"
+                preserveAspectRatio="none"
+                aria-hidden="true"
+              >
+                <path
+                  d="M0 10 H100"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-dasharray="3 4"
+                />
+              </svg>
+
+              <!-- Stage 2: AI verdict -->
+              <div class="stage stage-2" id="stage2">
+                <div class="stage-label">2 · AI Verdict</div>
+                <div class="verdict-card">
+                  <div class="verdict-head">
+                    <span class="verdict-label">Aggregate score</span>
+                    <span class="verdict-score" id="verdictScore"
+                      >94<small>/100</small></span
+                    >
+                  </div>
+                  <div class="model-row" data-model="gpt">
+                    <span class="model-name">GPT‑5</span>
+                    <div class="model-bar"><i style="--w: 96%"></i></div>
+                    <span class="model-pct">96</span>
+                  </div>
+                  <div class="model-row" data-model="claude">
+                    <span class="model-name">Claude</span>
+                    <div class="model-bar"><i style="--w: 94%"></i></div>
+                    <span class="model-pct">94</span>
+                  </div>
+                  <div class="model-row" data-model="gemini">
+                    <span class="model-name">Gemini</span>
+                    <div class="model-bar"><i style="--w: 92%"></i></div>
+                    <span class="model-pct">92</span>
+                  </div>
+                  <div class="model-row" data-model="llama">
+                    <span class="model-name">Llama</span>
+                    <div class="model-bar"><i style="--w: 93%"></i></div>
+                    <span class="model-pct">93</span>
+                  </div>
+                  <div class="model-row" data-model="deepseek">
+                    <span class="model-name">DeepSeek</span>
+                    <div class="model-bar"><i style="--w: 95%"></i></div>
+                    <span class="model-pct">95</span>
+                  </div>
+                  <div class="verdict-foot">
+                    <span class="check">✓ All 7 acceptance criteria met</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Connector -->
+              <svg
+                class="conn conn-2"
+                viewBox="0 0 100 20"
+                preserveAspectRatio="none"
+                aria-hidden="true"
+              >
+                <path
+                  d="M0 10 H100"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-dasharray="3 4"
+                />
+              </svg>
+
+              <!-- Stage 3: Release -->
+              <div class="stage stage-3" id="stage3">
+                <div class="stage-label">3 · Release</div>
+                <div class="release-card">
+                  <div class="release-head">
+                    <span>Released</span>
+                    <span class="tx">tx <code>3xH7…b9Pq</code></span>
+                  </div>
+                  <div class="release-amount">
+                    <span class="release-num" id="releaseNum">$0</span>
+                    <span class="release-cur">USDC</span>
+                  </div>
+                  <div class="release-foot">
+                    <span>→ <strong>@dev_amir</strong></span>
+                    <span class="time">in 2.4s</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="flow-foot">
+              <span class="foot-item"
+                ><span class="kbd">⌘</span><span class="kbd">␣</span> watch live
+                demo</span
+              >
+              <span class="foot-spacer"></span>
+              <span class="foot-item"
+                >Solana mainnet · settled in <strong>~2s</strong></span
+              >
+            </div>
+          </div>
+
+          <div class="trust-strip">
+            <span>Backed by</span>
+            <span class="trust-item">Solana</span>
+            <span class="trust-item">GitHub Apps</span>
+            <span class="trust-item">SOC 2 in progress</span>
+            <span class="trust-item">USDC settlement</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ SOCIAL PROOF ============ -->
+      <div class="social-proof">
+        <div class="social-proof-inner">
+          <div class="sp-header">
+            <span class="sp-label">What early testers are saying</span>
+          </div>
+          <div class="sp-quotes">
+            <div class="sp-quote">
+              <p>
+                &ldquo;Finally, something that protects both sides. We closed a
+                $15k contract with a client we&rsquo;d never met &mdash; zero
+                anxiety.&rdquo;
+              </p>
+              <div class="sp-quote-by">
+                <div class="sp-avatar sp-av-a">AK</div>
+                <div>
+                  <div class="sp-quote-name">Amir K.</div>
+                  <div class="sp-quote-role">Fullstack Developer, Karachi</div>
+                </div>
+              </div>
+            </div>
+            <div class="sp-quote">
+              <p>
+                &ldquo;The AI verdict saved us three days of back-and-forth.
+                Score came back in under 60 seconds. Genuinely
+                impressive.&rdquo;
+              </p>
+              <div class="sp-quote-by">
+                <div class="sp-avatar sp-av-b">SM</div>
+                <div>
+                  <div class="sp-quote-name">Sarah M.</div>
+                  <div class="sp-quote-role">Tech Lead, Remote</div>
+                </div>
+              </div>
+            </div>
+            <div class="sp-quote">
+              <p>
+                &ldquo;As a client, I won&rsquo;t hire a developer without
+                Justra anymore. The spec verification alone is worth it.&rdquo;
+              </p>
+              <div class="sp-quote-by">
+                <div class="sp-avatar sp-av-c">DR</div>
+                <div>
+                  <div class="sp-quote-name">Daniel R.</div>
+                  <div class="sp-quote-role">Startup Founder, Dubai</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============ PROBLEM ============ -->
+      <section class="section problem" id="problem" data-screen-label="Problem">
+        <div class="section-head">
+          <span class="section-tag">01 · The Problem</span>
+          <h2 class="section-title">
+            The freelance economy <em>is broken.</em>
+          </h2>
+          <p class="section-sub">
+            Three structural failures every developer and every client knows by
+            heart.
+          </p>
+        </div>
+
+        <div class="problem-grid">
+          <article class="problem-card">
+            <div class="problem-num">01</div>
+            <h3>Vague requirements</h3>
+            <p>
+              Clients shift goalposts after delivery. Ambiguity isn't a bug — it
+              gets exploited as a feature on every major freelance platform.
+            </p>
+            <div class="problem-quote">"That's not what I asked for."</div>
+          </article>
+
+          <article class="problem-card highlight">
+            <div class="problem-num">02</div>
+            <h3>Non‑payment risk</h3>
+            <p>
+              <strong>53%</strong> of freelancers report non‑payment issues. The
+              best developers won't even start without guarantees that don't
+              exist.
+            </p>
+            <div class="problem-stat">
+              <span data-count="53" data-suffix="%">53%</span
+              ><small>freelancers report non‑payment</small>
+            </div>
+          </article>
+
+          <article class="problem-card">
+            <div class="problem-num">03</div>
+            <h3>Broken arbitration</h3>
+            <p>
+              Upwork's human review takes days, runs client‑biased, and charges
+              up to <strong>20%</strong> in combined fees. Trust is sold by the
+              platform — not built into the work.
+            </p>
+            <div class="problem-quote">"Disputed. Resolution: 7 days."</div>
+          </article>
+        </div>
+
+        <p class="problem-note">
+          No platform today combines objective deliverable verification, escrow,
+          and code analysis in one workflow.
+          <span>Until now.</span>
+        </p>
+      </section>
+
+      <!-- ============ SOLUTION ============ -->
+      <section
+        class="section solution"
+        id="solution"
+        data-screen-label="Solution"
+      >
+        <div class="section-head">
+          <span class="section-tag">02 · Our Solution</span>
+          <h2 class="section-title">
+            Four pillars that <em>eliminate disputes by design.</em>
+          </h2>
+          <p class="section-sub">
+            Each one closes a specific gap that lets disputes happen in the
+            first place.
+          </p>
+        </div>
+
+        <div class="pillars">
+          <div class="pillar" data-pillar="1">
+            <div class="pillar-head">
+              <span class="pillar-num">01</span>
+              <h3>Machine‑readable requirements</h3>
+            </div>
+            <p>
+              All requirements defined upfront as structured checklists, test
+              cases, and acceptance criteria. No more interpretation games.
+            </p>
+            <div class="pillar-demo demo-spec">
+              <div class="spec-row">
+                <i class="spec-check">✓</i> User can sign up with email +
+                verification
+              </div>
+              <div class="spec-row">
+                <i class="spec-check">✓</i> Password ≥ 12 chars, hashed with
+                bcrypt
+              </div>
+              <div class="spec-row">
+                <i class="spec-check">✓</i> Sessions expire after 7 days idle
+              </div>
+              <div class="spec-row pending">
+                <i class="spec-check">○</i> OAuth: Google + GitHub providers
+              </div>
+              <div class="spec-row pending">
+                <i class="spec-check">○</i> Rate limit: 5 attempts / 15min
+              </div>
+            </div>
+          </div>
+
+          <div class="pillar" data-pillar="2">
+            <div class="pillar-head">
+              <span class="pillar-num">02</span>
+              <h3>Trustless fund escrow</h3>
+            </div>
+            <p>
+              Client funds locked in a Solana smart contract. Neither party can
+              withdraw unilaterally — release is rule‑based and transparent.
+            </p>
+            <div class="pillar-demo demo-escrow">
+              <div class="escrow-vault">
+                <div class="vault-label">Locked in escrow</div>
+                <div class="vault-amount">$12,000<span>.00 USDC</span></div>
+                <div class="vault-meta">
+                  <span>Contract</span><code>3xH7zR…9bPq</code>
+                </div>
+                <div class="vault-bar"><i></i></div>
+                <div class="vault-foot">
+                  <span>Milestone 2 of 4</span><span>50% released</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="pillar" data-pillar="3">
+            <div class="pillar-head">
+              <span class="pillar-num">03</span>
+              <h3>Milestone‑based payments</h3>
+            </div>
+            <p>
+              Work splits into clearly defined milestones, each tied to
+              acceptance criteria. Progress visible, payment conditional.
+            </p>
+            <div class="pillar-demo demo-milestones">
+              <div class="ms ms-done">
+                <span class="ms-dot"></span
+                ><span class="ms-label">Setup & schema</span
+                ><span class="ms-amt">$3,000</span>
+              </div>
+              <div class="ms ms-done">
+                <span class="ms-dot"></span
+                ><span class="ms-label">Auth + onboarding</span
+                ><span class="ms-amt">$3,000</span>
+              </div>
+              <div class="ms ms-active">
+                <span class="ms-dot"></span
+                ><span class="ms-label">Dashboard & API</span
+                ><span class="ms-amt">$3,000</span>
+              </div>
+              <div class="ms">
+                <span class="ms-dot"></span
+                ><span class="ms-label">Polish & deploy</span
+                ><span class="ms-amt">$3,000</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="pillar" data-pillar="4">
+            <div class="pillar-head">
+              <span class="pillar-num">04</span>
+              <h3>AI deliverable evaluation</h3>
+            </div>
+            <p>
+              Submitted work auto‑analyzed against requirements and scored for
+              completeness, correctness, alignment. Fast, objective, fair.
+            </p>
+            <div class="pillar-demo demo-ai">
+              <div class="ai-score-ring">
+                <svg viewBox="0 0 100 100" width="92" height="92">
+                  <circle
+                    cx="50"
+                    cy="50"
+                    r="42"
+                    fill="none"
+                    stroke="var(--border)"
+                    stroke-width="6"
+                  />
+                  <circle
+                    cx="50"
+                    cy="50"
+                    r="42"
+                    fill="none"
+                    stroke="var(--brand)"
+                    stroke-width="6"
+                    stroke-dasharray="248"
+                    stroke-dashoffset="14.88"
+                    stroke-linecap="round"
+                    transform="rotate(-90 50 50)"
+                  />
+                </svg>
+                <div class="ai-score-text">
+                  <strong>94</strong><span>/100</span>
+                </div>
+              </div>
+              <div class="ai-side">
+                <div class="ai-row">
+                  <span class="ai-dot"></span>Completeness <strong>96</strong>
+                </div>
+                <div class="ai-row">
+                  <span class="ai-dot"></span>Correctness <strong>92</strong>
+                </div>
+                <div class="ai-row">
+                  <span class="ai-dot"></span>Spec alignment <strong>95</strong>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- HOW IT WORKS — flow -->
+        <div class="how-it-works" id="how-it-works">
+          <h3 class="how-title">End‑to‑end flow</h3>
+          <p class="how-sub">
+            From spec to settled in five steps. No emails, no Upwork tickets, no
+            chasing.
+          </p>
+
+          <ol class="flow-steps">
+            <li>
+              <div class="step-num">01</div>
+              <h4>Define spec</h4>
+              <p>
+                Client and developer agree on milestones, acceptance criteria,
+                and a budget.
+              </p>
+            </li>
+            <li>
+              <div class="step-num">02</div>
+              <h4>Lock funds</h4>
+              <p>
+                USDC is locked in a Solana smart contract before any work
+                begins.
+              </p>
+            </li>
+            <li>
+              <div class="step-num">03</div>
+              <h4>Build &amp; submit</h4>
+              <p>
+                Developer ships via GitHub PRs, ZIPs, or commits — tied to a
+                milestone.
+              </p>
+            </li>
+            <li>
+              <div class="step-num">04</div>
+              <h4>AI verdict</h4>
+              <p>
+                Five models score the delivery against the agreed spec. Score is
+                transparent.
+              </p>
+            </li>
+            <li>
+              <div class="step-num">05</div>
+              <h4>Release or arbitrate</h4>
+              <p>
+                If accepted, funds release on‑chain in seconds. If disputed, a
+                human reviewer steps in.
+              </p>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- ============ PRICING ============ -->
+      <section class="section pricing" id="pricing" data-screen-label="Pricing">
+        <div class="section-head">
+          <span class="section-tag">03 · Pricing</span>
+          <h2 class="section-title">Simple. <em>Per‑escrow.</em></h2>
+          <p class="section-sub">
+            No subscriptions. No platform lock‑in. You pay only when an escrow
+            settles successfully.
+          </p>
+        </div>
+
+        <div class="price-grid">
+          <article class="price-card">
+            <header>
+              <span class="price-tier">Solo</span>
+              <span class="price-for">For freelancers and indie clients</span>
+            </header>
+            <div class="price-amount">
+              <span class="num">1.5%</span><span class="unit">per escrow</span>
+            </div>
+            <ul class="price-features">
+              <li><span>✓</span> Up to $10k per project</li>
+              <li><span>✓</span> 5‑model AI verdict</li>
+              <li><span>✓</span> GitHub + ZIP delivery</li>
+              <li><span>✓</span> Standard arbitration</li>
+              <li><span>✓</span> USDC settlement</li>
+            </ul>
+            <a class="btn btn-ghost btn-block" href="#">Start free</a>
+          </article>
+
+          <article class="price-card featured">
+            <header>
+              <span class="price-tier"
+                >Studio <span class="badge">Most popular</span></span
+              >
+              <span class="price-for"
+                >For agencies, teams, and serious builders</span
+              >
+            </header>
+            <div class="price-amount">
+              <span class="num">1.0%</span><span class="unit">per escrow</span>
+            </div>
+            <ul class="price-features">
+              <li><span>✓</span> Unlimited project size</li>
+              <li><span>✓</span> Custom acceptance criteria templates</li>
+              <li><span>✓</span> Priority arbitration (under 24h)</li>
+              <li><span>✓</span> Team workspaces &amp; roles</li>
+              <li><span>✓</span> API + webhooks</li>
+            </ul>
+            <a class="btn btn-primary btn-block" href="#">Start free</a>
+          </article>
+
+          <article class="price-card">
+            <header>
+              <span class="price-tier">Enterprise</span>
+              <span class="price-for">For platforms and regulated buyers</span>
+            </header>
+            <div class="price-amount">
+              <span class="num">Custom</span
+              ><span class="unit">talk to us</span>
+            </div>
+            <ul class="price-features">
+              <li><span>✓</span> White‑label escrow</li>
+              <li><span>✓</span> On‑prem AI review options</li>
+              <li><span>✓</span> Fiat rails (Stripe, wire)</li>
+              <li><span>✓</span> Dedicated SLA &amp; support</li>
+              <li><span>✓</span> Compliance review</li>
+            </ul>
+            <a class="btn btn-ghost btn-block" href="#">Book a call</a>
+          </article>
+        </div>
+
+        <p class="price-note">
+          Pricing shown is indicative for our private beta — final tiers may
+          shift before public launch.
+        </p>
+      </section>
+
+      <!-- ============ ROADMAP ============ -->
+      <section class="section roadmap" id="roadmap" data-screen-label="Roadmap">
+        <div class="section-head">
+          <span class="section-tag">04 · Roadmap</span>
+          <h2 class="section-title">
+            From MVP to platform — <em>a clear three‑phase path.</em>
+          </h2>
+          <p class="section-sub">
+            We're shipping in public. Here's where we are and where we're going.
+          </p>
+        </div>
+
+        <div class="roadmap-rail">
+          <div class="rail-line"></div>
+
+          <article class="phase phase-now">
+            <header>
+              <span class="phase-label">Phase 01 · v1.0</span>
+              <span class="phase-state">Shipping now</span>
+            </header>
+            <h3>MVP</h3>
+            <ul>
+              <li>GitHub repo + ZIP delivery</li>
+              <li>Solana smart‑contract escrow</li>
+              <li>5‑model AI verdict engine</li>
+              <li>Spec verification assistant</li>
+              <li>Human arbitration fallback</li>
+            </ul>
+          </article>
+
+          <article class="phase phase-next">
+            <header>
+              <span class="phase-label">Phase 02 · v2.0</span>
+              <span class="phase-state">In design</span>
+            </header>
+            <h3>Growth</h3>
+            <ul>
+              <li>Fiat payments (Stripe, PayPal)</li>
+              <li>VS Code IDE extension</li>
+              <li>Automated test execution</li>
+              <li>Mobile app (iOS &amp; Android)</li>
+              <li>Enhanced security audits</li>
+            </ul>
+          </article>
+
+          <article class="phase phase-later">
+            <header>
+              <span class="phase-label">Phase 03 · v3.0</span>
+              <span class="phase-state">On the horizon</span>
+            </header>
+            <h3>Scale</h3>
+            <ul>
+              <li>Design + non‑code deliverables</li>
+              <li>Enterprise / agency tier</li>
+              <li>White‑label platform</li>
+              <li>Expanded global compliance</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <!-- ============ TEAM ============ -->
+      <section class="section team" id="team" data-screen-label="Team">
+        <div class="section-head">
+          <span class="section-tag">05 · Team</span>
+          <h2 class="section-title">
+            Built by operators who've <em>shipped at scale.</em>
+          </h2>
+          <p class="section-sub">
+            A small, senior team out of Karachi, Pakistan — backed by DroxLabs.
+          </p>
+        </div>
+
+        <div class="team-grid">
+          <article class="team-card">
+            <div class="avatar avatar-1"><span>FN</span></div>
+            <h3>Founder Name</h3>
+            <p class="role">Co‑founder &amp; CEO</p>
+            <p class="bio">
+              Product &amp; GTM. Previously led platform teams at fintechs
+              across MENA &amp; SEA.
+            </p>
+          </article>
+          <article class="team-card">
+            <div class="avatar avatar-2"><span>FN</span></div>
+            <h3>Founder Name</h3>
+            <p class="role">Co‑founder &amp; CTO</p>
+            <p class="bio">
+              Solana &amp; smart‑contract architecture. Open source contributor.
+            </p>
+          </article>
+          <article class="team-card">
+            <div class="avatar avatar-3"><span>FN</span></div>
+            <h3>Founder Name</h3>
+            <p class="role">Head of AI</p>
+            <p class="bio">
+              Multi‑model evaluation systems. Built ML pipelines for code
+              analysis at scale.
+            </p>
+          </article>
+          <article class="team-card">
+            <div class="avatar avatar-4"><span>FN</span></div>
+            <h3>Founder Name</h3>
+            <p class="role">Head of Design</p>
+            <p class="bio">
+              Designs trust into products. From wallets to onboarding flows.
+            </p>
+          </article>
+        </div>
+
+        <p class="team-note">
+          Names &amp; roles are placeholders — drop in your actual team from the
+          deck whenever you're ready.
+        </p>
+      </section>
+
+      <!-- ============ FAQ ============ -->
+      <section class="section faq" id="faq" data-screen-label="FAQ">
+        <div
+          class="section-head"
+          style="text-align: center; margin-left: auto; margin-right: auto"
+        >
+          <span class="section-tag">06 &middot; FAQ</span>
+          <h2 class="section-title">
+            Common questions, <em>straight answers.</em>
+          </h2>
+        </div>
+        <div class="faq-list">
+          <div class="faq-item">
+            <button class="faq-q">
+              What happens if the AI verdict is wrong?
+              <span class="faq-icon"
+                ><svg viewBox="0 0 16 16" width="10" height="10">
+                  <path
+                    d="M8 2v12M2 8h12"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                  /></svg
+              ></span>
+            </button>
+            <div class="faq-body">
+              <div class="faq-body-inner">
+                <p class="faq-a">
+                  If either party disputes the AI score, a human arbitrator from
+                  our vetted panel reviews the deliverable against the original
+                  spec. Their decision is binding and final. We see this as a
+                  safety net — not a routine step.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q">
+              What currencies does Justra support?
+              <span class="faq-icon"
+                ><svg viewBox="0 0 16 16" width="10" height="10">
+                  <path
+                    d="M8 2v12M2 8h12"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                  /></svg
+              ></span>
+            </button>
+            <div class="faq-body">
+              <div class="faq-body-inner">
+                <p class="faq-a">
+                  v1.0 settles in USDC on Solana mainnet. Fiat rails — Stripe,
+                  PayPal, and wire transfer — are on our v2.0 roadmap.
+                  Multi-currency support will follow closely behind.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q">
+              Can I use Justra for non-code deliverables?
+              <span class="faq-icon"
+                ><svg viewBox="0 0 16 16" width="10" height="10">
+                  <path
+                    d="M8 2v12M2 8h12"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                  /></svg
+              ></span>
+            </button>
+            <div class="faq-body">
+              <div class="faq-body-inner">
+                <p class="faq-a">
+                  Not yet. v1.0 is purpose-built for software delivery — GitHub
+                  repos, PRs, and ZIPs. Design, content, and other creative
+                  deliverables are planned for our v3.0 Scale phase.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q">
+              How long does AI verification take?
+              <span class="faq-icon"
+                ><svg viewBox="0 0 16 16" width="10" height="10">
+                  <path
+                    d="M8 2v12M2 8h12"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                  /></svg
+              ></span>
+            </button>
+            <div class="faq-body">
+              <div class="faq-body-inner">
+                <p class="faq-a">
+                  Typically under 60 seconds. All five models run in parallel
+                  and scores are aggregated automatically. You get a transparent
+                  per-model breakdown — not just a number.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q">
+              What if a developer disappears mid-project?
+              <span class="faq-icon"
+                ><svg viewBox="0 0 16 16" width="10" height="10">
+                  <path
+                    d="M8 2v12M2 8h12"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                  /></svg
+              ></span>
+            </button>
+            <div class="faq-body">
+              <div class="faq-body-inner">
+                <p class="faq-a">
+                  Each milestone has a defined deadline baked into the smart
+                  contract. If a developer misses it without a submission, the
+                  client can trigger a clawback after a grace period.
+                  Milestone-based funding means you never over-expose yourself.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q">
+              Is my code private during review?
+              <span class="faq-icon"
+                ><svg viewBox="0 0 16 16" width="10" height="10">
+                  <path
+                    d="M8 2v12M2 8h12"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                  /></svg
+              ></span>
+            </button>
+            <div class="faq-body">
+              <div class="faq-body-inner">
+                <p class="faq-a">
+                  Yes. Code is transmitted over TLS, analyzed in isolated
+                  sandboxes, and never stored or indexed after scoring
+                  completes. We are SOC 2 Type II in progress and treat your IP
+                  with the same care you do.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ FINAL CTA ============ -->
+      <section class="section final-cta" data-screen-label="CTA">
+        <div class="cta-card">
+          <h2>Stop chasing payments.<br />Start shipping outcomes.</h2>
+          <p>Join the private beta. Free for the first 100 escrows.</p>
+          <form class="waitlist-form" id="ctaWaitlistForm">
+            <input
+              class="waitlist-input"
+              type="email"
+              name="email"
+              placeholder="Enter your email"
+              required
+              aria-label="Email address"
+            />
+            <button class="btn btn-primary btn-lg" type="submit">
+              Get early access
+              <svg viewBox="0 0 16 16" width="14" height="14">
+                <path
+                  d="M5 3l5 5-5 5"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </button>
+          </form>
+          <p class="waitlist-note" style="margin-top: 10px">
+            No credit card required &middot; Cancel anytime
+          </p>
+          <div class="cta-actions" style="margin-top: 20px">
+            <a class="btn btn-ghost btn-lg" href="#">Talk to founders</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ============ FOOTER ============ -->
+    <footer class="footer" data-screen-label="Footer">
+      <div class="foot-grid">
+        <div class="foot-brand">
+          <a href="#top" class="nav-logo">
+            <svg viewBox="0 0 32 36" width="20" height="22" aria-hidden="true">
+              <path
+                d="M16 1.5 L29 6 V18 C29 26 22.5 31.5 16 34.5 C9.5 31.5 3 26 3 18 V6 Z"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.2"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M19 9 H21 V19.5 C21 23.2 18.6 25.5 15.2 25.5 C12.6 25.5 10.5 24 10 21.6"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+            <span class="logo-word">Justra</span>
+          </a>
+          <p class="foot-tag">
+            Trustless software delivery escrow.<br />Built on Solana, powered by
+            AI, watched over by humans.
+          </p>
+        </div>
+        <div>
+          <h4>Product</h4>
+          <a href="#problem">The Problem</a>
+          <a href="#solution">Our Solution</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#roadmap">Roadmap</a>
+        </div>
+        <div>
+          <h4>Company</h4>
+          <a href="#team">Team</a>
+          <a href="#">Careers</a>
+          <a href="#">Press kit</a>
+          <a href="#">Contact</a>
+        </div>
+        <div>
+          <h4>Legal</h4>
+          <a href="#">Privacy</a>
+          <a href="#">Terms</a>
+          <a href="#">Security</a>
+          <a href="#">Audit reports</a>
+        </div>
+      </div>
+      <div class="foot-bot">
+        <span>© 2026 Justra · A DroxLabs company · Karachi, Pakistan</span>
+        <span class="foot-status"
+          ><span class="dot"></span> All systems operational</span
+        >
+      </div>
+    </footer>
+
+    <button id="back-to-top" aria-label="Back to top">
+      <svg viewBox="0 0 16 16" width="14" height="14">
+        <path
+          d="M3 10l5-5 5 5"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.8"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </svg>
+    </button>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
 </html>
