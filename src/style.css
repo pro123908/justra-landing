@@ -1177,19 +1177,21 @@ body {
 @media (max-width: 900px) {
   .flow-steps {
     grid-template-columns: 1fr;
+    gap: 40px;
   }
   .flow-steps::before {
-    top: calc(10% + 28px);
-    bottom: calc(10% + 28px);
-    left: 27px;
+    top: 28px;
+    bottom: 28px;
+    left: 50%;
     right: auto;
+    transform: translateX(-50%);
     width: 2px;
     height: auto;
     background: linear-gradient(
       180deg,
       transparent,
-      var(--brand) 15%,
-      var(--brand) 85%,
+      var(--brand) 8%,
+      var(--brand) 92%,
       transparent
     );
     box-shadow: 1px 0 10px 1px
@@ -1204,6 +1206,24 @@ body {
   flex-direction: column;
   align-items: center;
   text-align: center;
+}
+/* on mobile, mask the line through the text area using a bg-colored block */
+@media (max-width: 900px) {
+  .flow-steps li::after {
+    content: "";
+    position: absolute;
+    top: 56px; /* bottom edge of the circle */
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--bg);
+    z-index: 1;
+  }
+  .flow-steps h4,
+  .flow-steps p {
+    position: relative;
+    z-index: 2;
+  }
 }
 .step-num {
   font-family: var(--font-mono);
