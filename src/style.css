@@ -1816,6 +1816,7 @@ body {
   width: 110px;
   height: 110px;
   border-radius: 18px;
+  overflow: hidden;
   margin-bottom: 16px;
   display: flex;
   align-items: center;
@@ -1825,6 +1826,12 @@ body {
   font-weight: 700;
   color: #fff;
   position: relative;
+}
+.tc-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 .tc-photo--1 {
   background: linear-gradient(135deg, #1a2a5e, #4f8ef7);
