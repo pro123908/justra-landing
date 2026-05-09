@@ -278,6 +278,109 @@ inject();
   });
 })();
 
+// ---------- SECTION HEAD REVEAL ----------
+(function () {
+  const heads = document.querySelectorAll(".section-head, .team-head, .how-it-works, .biz-footer");
+  heads.forEach((el) => el.classList.add("section-head-hidden"));
+  const io = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) {
+          e.target.classList.remove("section-head-hidden");
+          e.target.classList.add("section-head-visible");
+          io.unobserve(e.target);
+        }
+      });
+    },
+    { threshold: 0.1 },
+  );
+  heads.forEach((el) => io.observe(el));
+})();
+
+// ---------- CTA CARD REVEAL ----------
+(function () {
+  const card = document.querySelector(".cta-card");
+  if (!card) return;
+  card.classList.add("cta-card-hidden");
+  const io = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) {
+          e.target.classList.remove("cta-card-hidden");
+          e.target.classList.add("cta-card-visible");
+          io.unobserve(e.target);
+        }
+      });
+    },
+    { threshold: 0.15 },
+  );
+  io.observe(card);
+})();
+
+// ---------- FAQ ITEM REVEAL ----------
+(function () {
+  const items = document.querySelectorAll(".faq-item");
+  items.forEach((el, i) => {
+    el.classList.add("faq-item-hidden");
+    el.style.transitionDelay = i * 55 + "ms";
+  });
+  const io = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) {
+          e.target.classList.remove("faq-item-hidden");
+          e.target.classList.add("faq-item-visible");
+          io.unobserve(e.target);
+        }
+      });
+    },
+    { threshold: 0.08 },
+  );
+  items.forEach((el) => io.observe(el));
+})();
+
+// ---------- TRUST STRIP REVEAL ----------
+(function () {
+  const strip = document.querySelector(".trust-strip");
+  if (!strip) return;
+  strip.classList.add("trust-strip-hidden");
+  const io = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) {
+          e.target.classList.remove("trust-strip-hidden");
+          e.target.classList.add("trust-strip-visible");
+          io.unobserve(e.target);
+        }
+      });
+    },
+    { threshold: 0.3 },
+  );
+  io.observe(strip);
+})();
+
+// ---------- PROBLEM NOTE REVEAL ----------
+(function () {
+  const note = document.querySelector(".problem-note");
+  if (!note) return;
+  note.style.opacity = "0";
+  note.style.transform = "translateY(14px)";
+  note.style.transition = "opacity 600ms ease 200ms, transform 600ms ease 200ms";
+  const io = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) {
+          e.target.style.opacity = "1";
+          e.target.style.transform = "translateY(0)";
+          io.unobserve(e.target);
+        }
+      });
+    },
+    { threshold: 0.4 },
+  );
+  io.observe(note);
+})();
+
 // ---------- WAITLIST FORMS ----------
 (function () {
   function handleWaitlist(form) {
