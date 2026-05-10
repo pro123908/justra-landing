@@ -280,7 +280,9 @@ inject();
 
 // ---------- SECTION HEAD REVEAL ----------
 (function () {
-  const heads = document.querySelectorAll(".section-head, .team-head, .how-it-works, .biz-footer");
+  const heads = document.querySelectorAll(
+    ".section-head, .team-head, .how-it-works, .biz-footer",
+  );
   heads.forEach((el) => el.classList.add("section-head-hidden"));
   const io = new IntersectionObserver(
     (entries) => {
@@ -365,7 +367,8 @@ inject();
   if (!note) return;
   note.style.opacity = "0";
   note.style.transform = "translateY(14px)";
-  note.style.transition = "opacity 600ms ease 200ms, transform 600ms ease 200ms";
+  note.style.transition =
+    "opacity 600ms ease 200ms, transform 600ms ease 200ms";
   const io = new IntersectionObserver(
     (entries) => {
       entries.forEach((e) => {
